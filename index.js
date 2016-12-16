@@ -75,8 +75,8 @@ Juke.prototype.directive = function directive(key, callback, description) {
 };
 
 Juke.prototype.instructions = function instructions() {
-  console.log(chalk.bold('\nWatch Usage'));
-  const writeOutput = (key, description) => console.log(`${chalk.dim(' \u203A Press')} ${key} ${chalk.dim('to ' + description)}`);
+  console.log(chalk.bold(`juke watch`));
+  const writeOutput = (key, description) => console.log(`${chalk.dim(' \u25B8 Press')} ${key} ${chalk.dim('to ' + description)}`);
   Object.keys(this.directives).sort().forEach((key) => {
     writeOutput(key, this.directives[key].description)
   });
