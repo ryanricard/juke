@@ -64,6 +64,8 @@ const Juke = function Juke(watch, defaultCallback, options={}) {
     }
   });
 
+  process.nextTick(this.currentDirective.action);
+
   return this;
 };
 
