@@ -1,0 +1,16 @@
+{
+  "name": "juke",
+  "version": "0.0.0",
+  "description": "File watcher utility that provides interface to alter processing during watch session.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ryan Ricard",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^1.1.3",
+    "clear": "0.0.1",
+    "gaze": "^1.1.2"
+  }
+}
