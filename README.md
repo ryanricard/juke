@@ -8,7 +8,12 @@ The dream: A reusable utility that enables engineers to quickly toggle watcher b
 
 Run the [juke example implementation](https://github.com/ryanricard/juke/tree/master/example)
 
-**Example Usage:**
+### Installation
+```
+$ npm i --save-dev juke
+```
+
+### Example Usage
 
 ```js
 const CLIEngine = require("eslint").CLIEngine;
