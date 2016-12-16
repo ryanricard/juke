@@ -15,7 +15,8 @@ function updateWatcher(directive) {
     directive.callback(path);
     this.instructions();
   };
-  this.currentAction = action;
+  this.currentDirective = directive;
+  this.currentDirective.action = action;
   // initialize new watcher with directive configuration
   this.watcher = new Gaze(this.watch);
   this.watcher.on('add', action);
@@ -44,14 +45,23 @@ const Juke = function Juke(watch, defaultCallback, options={}) {
   this.watch = watch;
   this.watcher = {};
   this.directives = {};
-  this.currentAction = defaultCallback;
+  this.currentDirective = null;
   this.lastPath = null;
 
   // configure initial watcher callback
   updateWatcher.call(this, { callback: defaultCallback, description: 'execute default callback' });
 
   process.stdin.on('data', (data) => {
-    if (['0d'].includes(data.toString())) this.currentAction(this.lastPath);
+    try {
+      if (['0d'].includes(data.toString())) this.currentDirective.action(this.lastPath);
+    } catch(err) {
+      if (/Path must be a string/.test(err.message)) {
+        console.log(chalk.yellow('No files have changed yet.'));
+      } else {
+        console.log(`${chalk.yellow('Oops.')} Something unfortunate happened when juke attempted to ${this.currentDirective.description}`);
+      }
+      this.instructions();
+    }
   });
 
   return this;
