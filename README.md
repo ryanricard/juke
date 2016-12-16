@@ -6,7 +6,7 @@ Inspired by `jest --watch`.
 
 The dream: A reusable utility that enables engineers to quickly toggle watcher behavior during development.
 
-![Image of juke functionality](https://github.com/ryanricard/juke/blob/master/artifacts/juke_instructions_screen_shot.png)
+<img src="https://github.com/ryanricard/juke/blob/master/artifacts/juke_instructions_screen_shot.png" title="Image of juke functionality" width="500px"/>
 
 Run the [juke example implementation](https://github.com/ryanricard/juke/tree/master/example)
 
