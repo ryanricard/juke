@@ -2,7 +2,9 @@ const Gaze = require('gaze').Gaze;
 const chalk = require('chalk');
 const clear = require('clear');
 
-process.stdin.setRawMode(true);
+if (process.stdin.isTTY) {
+  process.stdin.setRawMode(true);
+}
 process.stdin.resume();
 process.stdin.setEncoding('hex');
 
